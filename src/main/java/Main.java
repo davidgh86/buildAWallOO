@@ -9,8 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            int numberOfRows = 10;  //Integer.valueOf(args[0]);
-            int numberOfBricksPerRow = 1; //Integer.valueOf(args[1]);
+            int numberOfRows = Integer.valueOf(args[0]);
+            int numberOfBricksPerRow = Integer.valueOf(args[1]);
             String wallString = buildAWall(numberOfRows, numberOfBricksPerRow);
             System.out.println(wallString);
         }catch (Exception e){

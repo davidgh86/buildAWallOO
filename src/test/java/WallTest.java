@@ -6,7 +6,7 @@ import org.junit.Test;
 public class WallTest {
 
 
-    public static final String EXPECTED_RESULT =
+    public static final String EXPECTED_RESULT_10_7 =
             "■|■■|■■|■■|■■|■■|■■|■\n" +
             "■■|■■|■■|■■|■■|■■|■■\n" +
             "■|■■|■■|■■|■■|■■|■■|■\n" +
@@ -17,6 +17,18 @@ public class WallTest {
             "■■|■■|■■|■■|■■|■■|■■\n" +
             "■|■■|■■|■■|■■|■■|■■|■\n" +
             "■■|■■|■■|■■|■■|■■|■■";
+
+    public static final String EXPECTED_RESULT_10_1 =
+            "■|■\n" +
+            "■■\n" +
+            "■|■\n" +
+            "■■\n" +
+            "■|■\n" +
+            "■■\n" +
+            "■|■\n" +
+            "■■\n" +
+            "■|■\n" +
+            "■■";
 
     @Test(expected = IncorrectNumberOfRowsException.class)
     public void WallCreationWrongNumberOfRows() throws IncorrectNumberOfBricksException, IncorrectNumberOfRowsException,
@@ -35,7 +47,15 @@ public class WallTest {
             MaximumNumberOfBricksExceded {
         Wall wall = new Wall(10, 7);
         String stringResult = wall.toString();
-        assert (EXPECTED_RESULT.equals(stringResult));
+        assert (EXPECTED_RESULT_10_7.equals(stringResult));
+    }
+
+    @Test
+    public void WallCreationCorrectWallOneBrickPerWall() throws IncorrectNumberOfBricksException, IncorrectNumberOfRowsException,
+            MaximumNumberOfBricksExceded {
+        Wall wall = new Wall(10, 1);
+        String stringResult = wall.toString();
+        assert (EXPECTED_RESULT_10_1.equals(stringResult));
     }
 
     @Test(expected = MaximumNumberOfBricksExceded.class)
